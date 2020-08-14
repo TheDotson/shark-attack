@@ -1,17 +1,22 @@
 import React from 'react';
+import studentShape from '../../helpers/props/studentShape';
 
-class Student extends React.Component {
+class LiveStudent extends React.Component {
+  static propTypes = {
+    liveStudent: studentShape.studentShape,
+  }
+
   render() {
-    const { student } = this.props;
+    const { liveStudent } = this.props;
 
     return (
       <div className="card bg-dark text-light border-0">
         <div className="card-body">
-          <h5 className="card-title text-uppercase">{student.firstName} {student.lastName}</h5>
+          <h5 className="card-title text-uppercase">{liveStudent.firstName} {liveStudent.lastName}</h5>
         </div>
       </div>
     );
   }
 }
 
-export default Student;
+export default LiveStudent;
