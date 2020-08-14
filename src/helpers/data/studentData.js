@@ -127,11 +127,9 @@ const students = [
   },
 ];
 
-const getStudents = () => students;
+const livingStudents = () => students.filter((student) => student.isDead === false);
 
-const livingStudents = () => students.filter((student) => student.isDead === true);
-
-const dearlyBeloved = () => students.filter((student) => student.isDead === false);
+const dearlyBeloved = () => students.filter((student) => student.isDead === true);
 
 const followTheLight = (studentId) => {
   students.forEach((response) => {
@@ -142,7 +140,6 @@ const followTheLight = (studentId) => {
 };
 
 export default {
-  getStudents,
   livingStudents,
   dearlyBeloved,
   followTheLight,
