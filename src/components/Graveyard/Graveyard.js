@@ -1,12 +1,18 @@
 import React from 'react';
-import Corpse from '../GraveStone/GraveStone';
+import PropTypes from 'prop-types';
+import studentShape from '../../helpers/props/studentShape';
+import GraveStone from '../GraveStone/GraveStone';
 
 class Graveyard extends React.Component {
-  render() {
-    const { dearlyBeloved } = this.props;
+  static propTypes = {
+    deadStudents: PropTypes.arrayOf(studentShape.studentShape),
+  }
 
-    const graveStoneCards = dearlyBeloved.map((graveStone) => (
-      <Corpse key={graveStone.id} graveStone={graveStone} />
+  render() {
+    const { deadStudents } = this.props;
+
+    const graveStoneCards = deadStudents.map((student) => (
+      <GraveStone key={student.id} student={student} />
     ));
 
     return (

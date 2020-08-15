@@ -7,12 +7,12 @@ class LiveStudent extends React.Component {
   }
 
   render() {
-    const { liveStudent } = this.props;
+    const { student } = this.props;
 
     return (
       <div className="card bg-dark text-light border-0">
         <div className="card-body">
-          <h5 className="card-title text-uppercase">{liveStudent.firstName} {liveStudent.lastName}</h5>
+          <h5 className="card-title text-uppercase">{student.firstName} {student.lastName}</h5>
         </div>
       </div>
     );
