@@ -1,5 +1,6 @@
 import React from 'react';
 import studentShape from '../../helpers/props/studentShape';
+import headstone from '../../assets/headstone.png';
 
 class GraveStone extends React.Component {
   static propTypes = {
@@ -10,9 +11,10 @@ class GraveStone extends React.Component {
     const { student } = this.props;
 
     return (
-      <div className="card bg-dark text-light border-0">
+      <div className="card border-0 studentCard">
         <div className="card-body">
-          <h5 className="card-title text-uppercase">{student.firstName} {student.lastName}</h5>
+          <img src={headstone} alt="Student" />
+          <h5 className="card-title">{student.firstName} {student.lastName}</h5>
         </div>
       </div>
     );
