@@ -1,30 +1,36 @@
 import React from 'react';
+import studentData from '../helpers/data/studentData';
 import SharkTank from '../components/SharkTank/SharkTank';
 import Graveyard from '../components/Graveyard/Graveyard';
-import studentData from '../helpers/data/studentData';
 import './App.scss';
 
 class App extends React.Component {
   state = {
-    livingStudents: [],
-    dearlyBeloved: [],
+    students: [],
+    deadStudents: [],
   }
 
   componentDidMount() {
-    const livingStudents = studentData.livingStudents();
-    this.setState({ livingStudents });
+    const students = studentData.livingStudents();
+    const deadStudents = studentData.dearlyBeloved();
+    this.setState({ students, deadStudents });
+  }
 
-    const dearlyBeloved = studentData.dearlyBeloved();
-    this.setState({ dearlyBeloved });
+  sharkAttack = () => {
+    studentData.followTheLight();
+    const students = studentData.livingStudents();
+    const deadStudents = studentData.dearlyBeloved();
+    this.setState({ students, deadStudents });
   }
 
   render() {
-    const { livingStudents, dearlyBeloved } = this.state;
+    const { students, deadStudents } = this.state;
     return (
       <div className="App">
         <h2>Shark Attack!</h2>
-        <SharkTank livingStudents={livingStudents} />
-        <Graveyard dearlyBeloved={dearlyBeloved}/>
+        <button className="btn btn-danger my-3" onClick={this.sharkAttack}><i className="fas fa-exclamation-triangle"></i> SHARK ATTACK <i className="fas fa-exclamation-triangle"></i></button>
+        <SharkTank students={students} />
+        <Graveyard deadStudents={deadStudents}/>
       </div>
     );
   }

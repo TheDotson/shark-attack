@@ -3,43 +3,43 @@ const students = [
     id: 'student01',
     firstName: 'Austin',
     lastName: 'Phy',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student02',
     firstName: 'Brooke',
     lastName: 'Nemchak',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student03',
     firstName: 'Gene',
     lastName: 'McNew',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student04',
     firstName: 'Gwynne',
     lastName: 'Meeks',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student05',
     firstName: 'Jeanine',
     lastName: 'Beckle',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student06',
     firstName: 'Jeremiah',
     lastName: 'Vasquez',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student07',
     firstName: 'Jim',
     lastName: 'Browning',
-    isDead: true,
+    isDead: false,
   },
   {
     id: 'student08',
@@ -131,12 +131,10 @@ const livingStudents = () => students.filter((student) => student.isDead === fal
 
 const dearlyBeloved = () => students.filter((student) => student.isDead === true);
 
-const followTheLight = (studentId) => {
-  students.forEach((response) => {
-    if (response.id === studentId) {
-      response.isDead = true;
-    }
-  });
+const followTheLight = () => {
+  const livingStudentIds = livingStudents().map((student) => student.id);
+  const randomChance = Math.floor(Math.random() * (livingStudentIds.length));
+  students.find((student) => student.id === livingStudentIds[randomChance]).isDead = true;
 };
 
 export default {
