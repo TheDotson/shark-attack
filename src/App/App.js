@@ -27,7 +27,6 @@ class App extends React.Component {
     const { students, deadStudents } = this.state;
     return (
       <div className="App">
-        <h2>Shark Attack!</h2>
         <button className="btn btn-danger my-3" onClick={this.sharkAttack}><i className="fas fa-exclamation-triangle"></i> SHARK ATTACK <i className="fas fa-exclamation-triangle"></i></button>
         <SharkTank students={students} />
         <Graveyard deadStudents={deadStudents}/>

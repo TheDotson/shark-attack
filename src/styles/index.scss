@@ -5,3 +5,40 @@
 body {
   background-color: $favColor;
 }
+
+.title {
+  text-decoration: underline;
+  color: $nameColor;
+}
+
+.shark-tank {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-image: url(../assets/fishTank.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.graveyard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-image: url(../assets/graveyard.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.studentCard {
+  margin: 1rem 1rem;
+  border-radius: 10%;
+  background-color: $cardBackground;
+  color: $nameColor;
+  img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10%;
+    background-color: white;
+    margin-bottom: 5px;
+  }
+}
